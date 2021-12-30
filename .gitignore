@@ -1,3 +1,8 @@
+#data and note files
+*.pdf
+*.csv
+secretKeys.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
