@@ -2,7 +2,13 @@
 
 from transformers import pipeline
 import time
-text = "we love you"
+#text = "we love you"
+#text = "es geht mir gut."
+text = "es ist schlecht"
+#text = "it is bad"
+#text = "ich bin traurig"
+#text = "i am sad."
+#text = "it is bad"
 print("loading pipline")
 start = time.time()
 nlp = pipeline("sentiment-analysis")
@@ -12,7 +18,7 @@ print(f"pipeline loaded. Time to complete: {elapsed}")
 
 print("Running sentiment analysis")
 start = time.time()
-result = nlp('we love you')[0]
+result = nlp(text)[0]
 end = time.time()
 elapsed = end - start
 print(f"sentiment analysis completed. Time to complete: {elapsed}")
