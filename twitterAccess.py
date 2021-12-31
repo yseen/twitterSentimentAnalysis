@@ -3,11 +3,12 @@
 
 #connects to twitter using tweepy API.
 #pulls tweets containing hardcoded tags (variable tags)
-#run NLP sentiment analysis pipeline using smileyface tranformers API.
+#run NLP sentiment analysis pipeline using hugging face tranformers API.
 #write sentiment, confidence score, and tweet to out.csv file. 
 #continues running until cancelled. (CTRL+C in shell)
 
-
+#TODO: Tests with German sentences suggest that Transformers does not work reliably on non-English text. 
+#      Use https://pypi.org/project/langdetect/ to detect English and filter out other tweets.
 #TODO: run sentimental analysis on original tweets only.    
 #TODO: Remove userhandles before sentiment analysis. 
 #TODO: how to set repeat schedule for pulls?
@@ -23,6 +24,7 @@ import pandas as pd
 
 # authorization tokens
 df = pd.read_csv('secretKeys.txt')#read access and consumer keys from separate file, not stored on git, for account security
+#Use the secretKeysSample.txt file. Place your own keys in the file and rename to secretKeys.txt 
 consumer_key    = df.loc[df['keyName'] == "consumer_key"].iloc[0][1]
 consumer_secret = df.loc[df['keyName'] == "consumer_secret"].iloc[0][1]
 access_key      = df.loc[df['keyName'] == "access_key"].iloc[0][1]
